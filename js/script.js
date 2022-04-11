@@ -1,4 +1,6 @@
 
+// ESERCIZIO 1
+
 const classe61 = [
   "Domenico Agostino",
   "Mihai Badia",
@@ -54,9 +56,11 @@ for (let i =0; i < numItems; i++){
   //const userMail = "mail"+i+"@mail.com";
   const userMail = firstLastName[0].toLowerCase()+"."+firstLastName[1].toLowerCase()+"@boolean.careers";
   userAuth.push (userMail);
-  console.log(userMail);
-  console.log(userAuth);
+  //console.log(userMail);
+  //console.log(userAuth);
 };
+
+console.log(userAuth);
 
 // Creo una variabile in cui andrò ad inserire la mail prelevata dalla pagina HTML
 let mailInserted;
@@ -83,3 +87,64 @@ btnLogin.addEventListener("click", function(){
   } else alert("ACCESSO NEGATO. RIPROVA")
 
 });
+
+// /ESERCIZIO 1
+
+
+// ESERCIZIO 2
+
+// 1. Al click del botton genero due numeri random
+// 2. Verifico quale dei due è maggiore
+// 3. Stampo il vincitore
+
+
+const btnDice = document.querySelector("#btn_dice");
+
+
+const numberMax = 6;
+
+// Al click del bottone Lancia assegno il valore del input alla variabile creata in precedenza
+
+btnDice.addEventListener("click", function(){
+  let output ="";
+  let numberRandom = [];
+
+  for (let i = 0; i < 2; i++){
+    let number = Math.floor((Math.random() * numberMax) + 1) ;
+    numberRandom.push(number);
+  }
+
+if (numberRandom[0] > numberRandom[1]){
+  output = `
+    <h5>Risultato:</h5>
+    <h6>HAI VINTO!!</h6>
+    <span> Il tuo numero é: ${numberRandom[0]}</span>
+    <span> Il numero del tuo avversario é: ${numberRandom[1]}</span>
+`;
+} else if (numberRandom[0] < numberRandom[1]){
+  output = `
+    <h5>Risultato:</h5>
+    <h6>HAI PERSO!!</h6>
+    <span> Il tuo numero é: ${numberRandom[0]}</span>
+    <span> Il numero del tuo avversario é: ${numberRandom[1]}</span>
+`;
+} else if (numberRandom[0] === numberRandom[1]){
+  output = `
+    <h5>Risultato:</h5>
+    <h6>PAREGGIO</h6>
+    <span> Il tuo numero ed quello dell'avversario é: ${numberRandom[0]}</span>
+`;}
+
+const outputBox = document.querySelector(".result");
+outputBox.className+=(" display_click");
+outputBox.innerHTML = output;
+console.log(outputBox);
+console.log(numberRandom);
+
+});
+
+
+
+
+
+
